@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>Human activities are changing the face of the earth</title>
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/esri/dijit/css/Popup.css">    
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+
+     <script type="text/javascript">
+      var djConfig = {
+        parseOnLoad: true
+      };
+    </script>
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.7compact"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="javascript/map.js"></script>
+    <script type="text/javascript" src="javascript/layout.js"></script>
+    <script type="text/javascript">
+      
+    var configOptions;
+    
+    function init(){
+    
+      configOptions = {
+        //The ID for the map from ArcGIS.com
+        webmap : "75d536a69270440a952ae2e5c0143242",
+        //Enter a title, if no title is specified, the webmap's title is used.
+        title : "",
+        //Enter a subtitle, if not specified the ArcGIS.com web map's summary is used
+        subtitle : "Use the slider to compare <a style='font-weight:normal' class='sourceLink' href='http://www.arcgis.com/home/item.html?id=1edfe16c7aff4f5b9bf10c88a97ec30b' target='_blank'>1990 false-color Landsat views</a> (left) with <a style='font-weight:normal' class='sourceLink' href='http://www.arcgisonline.com/home/item.html?id=c03a526d94704bfb839445e80de95495' target='_blank'>recent true-color imagery</a> (right). Humans are increasingly transforming Earth’s surface—through direct activities such as farming, mining, and building, and indirectly by altering its climate.",
+		//Choose the layer that will disappear under the swipe tool. All layers are given a value from 0 to number of layers available in your map
+		chooseSwipeLevel : "1",
+        //If the webmap uses Bing Maps data, you will need to provided your Bing Maps Key
+        bingmapskey : "",
+        //specify a proxy url if needed
+        proxyurl:"",
+        //specify the url to a geometry service 
+        geometryserviceurl:"http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
+        //Modify this to point to your sharing service URL if you are using the portal
+        sharingurl :"http://arcgis.com/sharing/content/items"
+      };
+        initMap();
+    }
+
+    //show map on load 
+    dojo.addOnLoad(init);
+    </script>
+    
+    <style type="text/css">
+	  .esriSimpleSlider{
+	    background-color:#dadada;
+		right:10px;
+	    left:auto;
+	  }
+	</style>
+    <script type="text/javascript">
+	  var iPad = false;
+	  $(document).ready(function(e) {
+		if(navigator.userAgent.match(/iPad/i) != null){
+		  iPad = true;
+		    $("#sliderdiv").css('width',12);
+		  }
+	  });
+	</script>
+    <!--Social Media Links-->
+    <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'77225c91-2742-42f7-b1b4-bddda99a9bde',popup:true});</script>
+    <!--END Social Media Links-->
+    <!--Google Analytics Start-->
+	<script type="text/javascript">
+  	  var _gaq = _gaq || [];
+  	  _gaq.push(['_setAccount', 'UA-26529417-1']);
+  	  _gaq.push(['_trackPageview']);
+
+  	  (function() {
+   	     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  	  })();
+	</script>
+	<!--Google Analytics End-->
+  </head>	
+   
+      <body class="tundra">
+        <div id="mainWindow" dojotype="dijit.layout.BorderContainer" design="headline"
+        gutters="false" style="width:100%; height:100%;">
+
+          <!-- Header Section-->
+          <div id="header" dojotype="dijit.layout.ContentPane" region="top">
+          	<div id="headerText">
+              <div id="title"></div>
+              <div id="subtitle"></div>
+            </div>
+            <div id="logoArea">
+              <div id="social"><a id="msLink" href="http://storymaps.esri.com" target="_blank">A story map </a><span  class='st_facebook' ></span><span  class='st_twitter' ></span>
+              </div>
+              <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a></div>
+            </div>
+            <div id="links">
+                <!--Navigation Tabs will automatically be loaded here-->
+            </div><!--/links-->
+            <p id="sources"><strong>Sources:</strong> Left, <a style="font-weight:normal" class='sourceLink' href='http://www.arcgis.com/home/item.html?id=1edfe16c7aff4f5b9bf10c88a97ec30b' target='_blank'>1990 Landsat imagery</a>; Right, Esri’s <a style="font-weight:normal" class='sourceLink' href='http://www.arcgisonline.com/home/item.html?id=c03a526d94704bfb839445e80de95495' target='_blank'>World Imagery</a> basemap.</p>
+            <div id="timeSliderDiv"></div>
+        <div id="header_flourish"></div>
+    
+          </div>
+
+          <!-- Map Section -->
+          <div id="map" dojotype="dijit.layout.ContentPane" region="center">
+          	<div class="moveable" title="Move the slider left or right" id="sliderdiv">
+            </div>
+            <div id="legendCon">
+	         	<div id="legendDiv"></div>
+              	<div id="legendToggle"><p id="legTogText">MAP LEGEND ▼</p></div>
+            </div>
+            <img id="swipeImg" src="images/swipeStart.png" alt="">
+            <img id="prevImg" onClick="prevExtent()" class="navButton" src="images/prev.png" alt="">
+            <img id="nextImg" onClick="nextExtent()" class="navButton" src="images/next.png" alt="">
+            <div id="mapInfo">
+            	<h3 id="mapTitle"></h3>
+                <p id="mapText"></p>
+            </div><!--/mapInfo-->
+          </div>
+
+          <!-- Footer Section-->
+          <div id="footer" dojotype="dijit.layout.ContentPane" region="bottom">
+              <span>
+                <select disabled="false" id='layerlistdd' onchange="updateSwipeLayer(this)"></select>		
+              </span>
+          </div>
+
+        </div>
+        
+        <!--Loading Panel-->
+        <div id="loadingCon">
+    		<div id="loadingDialog">
+     			<div id="loadingHeader"></div>
+     			 <div id="loading">Loading map from ArcGIS Online<br />
+       			 <img id="loadingImg" alt="" src="images/progressBar.gif">
+    		    </div>
+   		    </div>
+ 		  </div	
+        
+      ></body>
+
+  </html>
