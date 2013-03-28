@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>Human activities are changing the face of the earth</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/dojo/dijit/themes/tundra/tundra.css">
     <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/esri/dijit/css/Popup.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -27,11 +27,11 @@
 
       configOptions = {
         //The ID for the map from ArcGIS.com
-        webmap : "a49ad154d07e484383bb70a19c899a67",
+        webmap : "88710945d8f74d49bde12d9e9c92321a",
         //Enter a title, if no title is specified, the webmap's title is used.
         title : "",
         //Enter a subtitle, if not specified the ArcGIS.com web map's summary is used
-        subtitle : "Use the slider to compare <a style='font-weight:normal' class='sourceLink' href='http://www.arcgis.com/home/item.html?id=1edfe16c7aff4f5b9bf10c88a97ec30b' target='_blank'>1990 false-color Landsat views</a> (left) with <a style='font-weight:normal' class='sourceLink' href='http://www.arcgisonline.com/home/item.html?id=c03a526d94704bfb839445e80de95495' target='_blank'>recent true-color imagery</a> (right). Humans are increasingly transforming Earth’s surface—through direct activities such as farming, mining, and building, and indirectly by altering its climate.",
+        subtitle : "",
 		//Choose the layer that will disappear under the swipe tool. All layers are given a value from 0 to number of layers available in your map
 		chooseSwipeLevel : "1",
         //If the webmap uses Bing Maps data, you will need to provided your Bing Maps Key
@@ -102,7 +102,7 @@
             <div id="links">
                 <!--Navigation Tabs will automatically be loaded here-->
             </div><!--/links-->
-            <p id="sources"><strong>Sources:</strong> Left, Esri’s <a style="font-weight:normal" class='sourceLink' href='http://www.arcgisonline.com/home/item.html?id=c03a526d94704bfb839445e80de95495' target='_blank'>World Imagery</a> basemap; Right, <a style="font-weight:normal" class='sourceLink' href='http://www.arcgis.com/home/item.html?id=1edfe16c7aff4f5b9bf10c88a97ec30b' target='_blank'>1990 Landsat imagery</a>.</p>
+            <p id="sources"><strong>Sources:</strong> Left, <a style="font-weight:normal" class='sourceLink' href='http://arcgis-sandy-659341956.us-west-1.elb.amazonaws.com/arcgis/rest/services/Sandy/NOAA_Aerials/ImageServer' target='_blank'>NOAA Aerial Imagery</a>; Right, Esri’s <a style="font-weight:normal" class='sourceLink' href='http://www.arcgisonline.com/home/item.html?id=c03a526d94704bfb839445e80de95495' target='_blank'>World Imagery</a> basemap.</p>
             <div id="timeSliderDiv"></div>
         <div id="header_flourish"></div>
 

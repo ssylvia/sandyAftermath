@@ -56,14 +56,17 @@
          mapOptions: {
            slider: true,
            nav: false,
-           wrapAround180:true,
-		   extent: mapExtents[0]
+           wrapAround180:true
          },
          ignorePopups:false,
          bingMapsKey: configOptions.bingmapskey
        });
 
        mapDeferred.addCallback(function (response) {
+
+        dojo.forEach(response.itemInfo.itemData.bookmarks,function(bm){
+          mapExtents.push(bm.extent);
+        });
         
 		 document.title = configOptions.title|| response.itemInfo.item.title || "";
          dojo.byId("title").innerHTML = configOptions.title ||response.itemInfo.item.title;
